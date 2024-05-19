@@ -18,6 +18,32 @@
       enable = true;
       userEmail = "nike.lear@gmail.com";
       userName = "nikelear";
+      delta = {
+        enable = true;
+        options = {
+          line-numbers = true;
+        };
+      };
+      
+      pull = {
+        rebase = true;
+      };
+      
+      merge = {
+        conflictstyle = "diff3";
+      };
+      
+      init = {
+        defaultBranch = "main";
+      };
+
+      ignores = [
+        "target"
+        ".vscode"
+        ".direnv"
+        "*~"
+        "*.swp"
+      ];
     };
 
     starship.enable = true;
