@@ -25,6 +25,15 @@
           nixos-wsl = inputs.nixos-wsl;
         };
       };
+      wslp = inputs.nixos.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./configuration_proxy.nix
+        ];
+        specialArgs = {
+          nixos-wsl = inputs.nixos-wsl;
+        };
+      };
     };
     homeConfigurations = {
       hg = inputs.home-manager.lib.homeManagerConfiguration {
