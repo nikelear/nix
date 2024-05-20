@@ -77,6 +77,8 @@
           "ga" = "git add";
           "ga." = "git add .";
           "gcm" = "git commit -m \"%\"";
+          "gca" = "git commit --amend";
+          "gp" = "git pull && git push";
           "reload" = "exec $SHELL -l";
           "rebuild" = "sudo nixos-rebuild switch --flake .#%";
           "rehome" = "home-manager switch --flake .#%";
