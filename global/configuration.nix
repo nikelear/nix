@@ -7,19 +7,11 @@
 
 { config, lib, pkgs, nixos-wsl, ... }:
 
-let
-  isWSL = builtins.match ".*[Mm]icrosoft.*" (builtins.readFile "/proc/sys/kernel/osrelease") != null;
-
-  isPersonal = builtins.pathExists "/mnt/c/Users/Aether";
-in
-
 {
   imports = [
     # include NixOS-WSL modules
     nixos-wsl.nixosModules.wsl
-  ] ++ (
-    if isWSL && ! isPersonal then [ ./proxy.nix ] else []
-  );
+  ];
 
   time = {
     timeZone = "Asia/Tokyo";
@@ -34,16 +26,6 @@ in
     };
   };
 
-  wsl = {
-    enable = true;
-    defaultUser = "nikelear";
-    wslConf = {
-      boot.systemd = true;
-      network.hostname = "Astrolabe";
-      interop.appendWindowsPath = false;
-    };
-  };
-
   security = {
     sudo = {
       enable = true;
@@ -52,10 +34,13 @@ in
 
   environment = {
     sessionVariables = {
-      "XDG_CONFIG_DIR" = "$HOME/.config";
+      RSYNC_RSH = "ssh";
     };
     variables = {
-      RSYNC_RSH = "ssh";
+      "XDG_CONFIG_HOME" = "$HOME/.config";
+      "XDG_CACHE_HOME" = "$HOME/.cache";
+      "XDG_DATA_HOME" = "$HOME/.local/share";
+      "XDG_STATE_HOME" = "$HOME/.local/state";
       EDITOR = "vim";
     };
     systemPackages = with pkgs; [

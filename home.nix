@@ -73,10 +73,11 @@
           ".." = "cd ..";
           "..." = "cd .. && cd ..";
           "ga" = "git add";
+          "ga." = "git add .";
           "gcm" = "git commit -m \"%\"";
           "reload" = "exec $SHELL -l";
-          "rebuild" = "cd ~/nix && sudo nixos-rebuild switch --flake .#%";
-          "rehome" = "cd ~/nix && home-manager switch --flake .#%";
+          "rebuild" = "sudo nixos-rebuild switch --flake .#%";
+          "rehome" = "home-manager switch --flake .#%";
         };
       };
     };
