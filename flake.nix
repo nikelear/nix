@@ -77,7 +77,7 @@
           inherit inputs;
         };
         modules = [
-          ./home_none.nix
+          ./home/none.nix
         ];
       };
 
