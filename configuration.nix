@@ -7,18 +7,22 @@
 
 { config, lib, pkgs, nixos-wsl, ... }:
 
+let
+  isWSL = builtins.match ".*[Mm]icrosoft.*" (builtins.readFile "/proc/sys/kernel/osrelease") != null;
+
+  isPersonal = builtins.pathExists "/mnt/c/Users/Aether";
+in
+
 {
   imports = [
     # include NixOS-WSL modules
     nixos-wsl.nixosModules.wsl
-  ];
+  ] ++ (
+    if isWSL && ! isPersonal then [ ./proxy.nix ] else []
+  );
 
   time = {
     timeZone = "Asia/Tokyo";
-  };
-
-  networking = {
-    hostName = "Astrolabe";
   };
 
   nix = { 
@@ -33,7 +37,11 @@
   wsl = {
     enable = true;
     defaultUser = "nikelear";
-    interop.includePath = false;
+    wslConf = {
+      boot.systemd = true;
+      network.hostname = "Astrolabe";
+      interop.appendWindowsPath = false;
+    };
   };
 
   security = {
