@@ -7,11 +7,19 @@
 
 { config, lib, pkgs, nixos-wsl, ... }:
 
+let
+  # isWSL = builtins.pathExists "/usr/lib/wsl/lib";
+  # isPersonal = builtins.getEnv "WSL_RUNNING_USER" == "C:\\Users\\Aether";
+  isPersonal = false;
+in
+
 {
   imports = [
     # include NixOS-WSL modules
     nixos-wsl.nixosModules.wsl
-  ];
+  ] ++ (
+    if ! isPersonal then [ ./proxy.nix ] else []
+  );
 
   time = {
     timeZone = "Asia/Tokyo";

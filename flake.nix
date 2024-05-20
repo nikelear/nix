@@ -19,6 +19,7 @@
       wsl = inputs.nixos.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
+<<<<<<< HEAD
           ./global/configuration.nix
           ./global/wsl.nix
         ];
@@ -32,6 +33,21 @@
           ./global/configuration.nix
           ./global/wsl.nix
           ./global/dkr_proxy.nix
+||||||| 57c7c40
+          ./configuration.nix
+        ];
+        specialArgs = {
+          nixos-wsl = inputs.nixos-wsl;
+        };
+      };
+      wslp = inputs.nixos.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./configuration_proxy.nix
+=======
+          ./global/configuration.nix
+          ./global/wsl.nix
+>>>>>>> origin/main
         ];
         specialArgs = {
           nixos-wsl = inputs.nixos-wsl;
