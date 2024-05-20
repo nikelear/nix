@@ -67,6 +67,7 @@
           "cp *"
         ];
       };
+      shellAliases = {};
       zsh-abbr = {
         enable = true;
         abbreviations = {
