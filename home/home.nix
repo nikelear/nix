@@ -4,6 +4,9 @@
     username = "nikelear";
     homeDirectory = "/home/${username}";
     stateVersion = "23.11";
+    packages = [
+      eza
+    ];
   };
 
   programs = {
@@ -42,11 +45,6 @@
         "*~"
         "*.swp"
       ];
-    };
-
-    eza = {
-      enable = true;
-      git = true;
     };
 
     starship.enable = true;
