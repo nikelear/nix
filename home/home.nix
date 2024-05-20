@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
 
   home = rec {
@@ -5,7 +6,9 @@
     homeDirectory = "/home/${username}";
     stateVersion = "23.11";
     packages = [
-      eza
+      pkgs.eza
+      pkgs.bat
+      pkgs.ripgrep
     ];
   };
 
