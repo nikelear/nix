@@ -17,19 +17,15 @@
     timeZone = "Asia/Tokyo";
   };
 
-  networking = {
-    hostName = "Astrolabe";
+  systemd = {
+    services = {
+      nix-daemon = {
+        environment = {
+          "https_proxy" = "http://tyo4.sme.zscaler.net:443";
+        };
+      };
+    };
   };
-
-  # systemd = {
-  #   services = {
-  #     nix-daemon = {
-  #       environment = {
-  #         "https_proxy" = "http://tyo4.sme.zscaler.net:443";
-  #       };
-  #     };
-  #   };
-  # };
 
   nix = { 
     settings = {
@@ -43,7 +39,11 @@
   wsl = {
     enable = true;
     defaultUser = "nikelear";
-    interop.includePath = false;
+    wslConf = {
+      boot.systemd = true;
+      network.hostname = "Astrolabe";
+      interop.appendWindowsPath = false;
+    };
   };
 
   security = {

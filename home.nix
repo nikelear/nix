@@ -24,19 +24,17 @@
           line-numbers = true;
         };
       };
-      
-      pull = {
-        rebase = true;
+      extraConfig = {
+        init = {
+          defaultBranch = "main";
+        };
+        merge = {
+          conflictstyle = "diff3";
+        };
+        pull = {
+          rebase = true;
+        };
       };
-      
-      merge = {
-        conflictstyle = "diff3";
-      };
-      
-      init = {
-        defaultBranch = "main";
-      };
-
       ignores = [
         "target"
         ".vscode"
@@ -44,6 +42,11 @@
         "*~"
         "*.swp"
       ];
+    };
+
+    eza = {
+      enable = true;
+      git = true;
     };
 
     starship.enable = true;
@@ -77,7 +80,6 @@
         };
       };
     };
-
   };
 
   home = {
@@ -87,4 +89,5 @@
       ABBR_SET_LINE_CURSOR = 1;
     };
   };
+
 }
