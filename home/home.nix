@@ -6,6 +6,7 @@
     homeDirectory = "/home/${username}";
     stateVersion = "23.11";
     packages = [
+      pkgs.ghq
       pkgs.eza
       pkgs.bat
       pkgs.ripgrep
@@ -112,6 +113,7 @@
           "..." = "cd .. && cd ..";
           "ga" = "git add";
           "ga." = "git add .";
+          "gdh" = "git diff HEAD";
           "gcm" = "git commit -m \"%\"";
           "gca" = "git commit --amend";
           "gp" = "git push";
