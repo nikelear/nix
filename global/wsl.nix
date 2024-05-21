@@ -4,7 +4,7 @@
     enable = true;
     defaultUser = "nikelear";
     wslConf = {
-      boot.systemd = true;
+      # boot.systemd = true;
       interop.appendWindowsPath = false;
     };
   };
