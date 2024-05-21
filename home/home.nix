@@ -18,6 +18,11 @@
 
     vim = {
       enable = true;
+      defaultEditor = true;
+      extraConfig = ''
+        set number
+        set relativenumber
+      '';
     };
 
     git = {
@@ -28,25 +33,53 @@
         enable = true;
         options = {
           line-numbers = true;
+          side-by-side = true;
+          navigate = true;
         };
       };
       extraConfig = {
+        commit = {
+          verbose = true;
+        };
         init = {
           defaultBranch = "main";
         };
         merge = {
+          ff = false;
           conflictstyle = "diff3";
         };
         pull = {
+          ff = only;
           rebase = true;
+        };
+        push = {
+          useForceIfIncludes = true;
+        };
+        ghq = {
+          root = "~/.local/share/ghq";
         };
       };
       ignores = [
-        "target"
-        ".vscode"
-        ".direnv"
+        # mac
+        "._*"
+        ".DS_Store"
+
+        # system
         "*~"
+        ".direnv"
+        ".vscode"
+        ".idea"
         "*.swp"
+        "*.zwc"
+        "*.log"
+
+        # output
+        "target"
+        "result"
+
+        # c
+        "compile_commands.json"
+        "compile_flags.txt"
       ];
     };
 
@@ -62,10 +95,13 @@
         path = "$ZDOTDIR/.zsh_history";
         ignoreAllDups = true;
         ignorePatterns = [
-          "cd*"
           "pwd"
+          "cd*"
           "rm *"
           "cp *"
+          "ls *"
+          "git add ."
+          "git commit -m*"
         ];
       };
       shellAliases = {};
@@ -78,7 +114,7 @@
           "ga." = "git add .";
           "gcm" = "git commit -m \"%\"";
           "gca" = "git commit --amend";
-          "gp" = "git pull && git push";
+          "gp" = "git push";
           "reload" = "exec $SHELL -l";
           "rebuild" = "sudo nixos-rebuild switch --flake .#%";
           "rehome" = "home-manager switch --flake .#%";
@@ -89,7 +125,6 @@
 
   home = {
     sessionVariables = {
-      EDITOR = "vim";
       ABBR_SET_EXPANSION_CURSOR = 1;
       ABBR_SET_LINE_CURSOR = 1;
     };

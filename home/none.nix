@@ -6,8 +6,24 @@
     stateVersion = "23.11";
   };
   
-  packages = {
+  programs = {
     home-manager.enable = true;
+    zsh = {
+      enable = true;
+      dotDir = ".config/zsh";
+      history = {
+        save = 100000;
+        size = 100000;
+        path = "$ZDOTDIR/.zsh_history";
+        ignoreAllDups = true;
+        ignorePatterns = [
+          "cd*"
+          "pwd"
+          "rm *"
+          "cp *"
+        ];
+      };
+    };
   };
 
 }
