@@ -23,4 +23,11 @@
       ];
     };
   };
+  fileSystems = {
+    "/mnt/z" = {
+      device = "Z:";
+      fsType = "drvfs";
+      options = [ "defaults" ];
+    };
+  };
 }

@@ -33,7 +33,7 @@
         modules = [
           ./global/configuration.nix
           ./global/wsl.nix
-          ./global/dkr_proxy.nix
+          ./global/dkr.nix
         ];
         specialArgs = {
           nixos-wsl = inputs.nixos-wsl;
