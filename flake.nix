@@ -14,8 +14,8 @@
     };
   };
 
-  outputs = inputs: {
-
+  outputs = inputs: 
+  {
     nixosConfigurations = {
       wsl = inputs.nixos.lib.nixosSystem {
         system = "x86_64-linux";
@@ -46,6 +46,14 @@
         pkgs = import inputs.nixpkgs {
           system = "x86_64-linux";
           config.allowUnfree = true;
+          home.file = {
+            "flflfl" = {
+              text = ''
+                #!/usr/bin/env bash
+                echo "hoge~~~hogehogehoge"
+              '';
+            };
+          };
         };
         extraSpecialArgs = {
           inherit inputs;

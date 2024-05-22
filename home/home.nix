@@ -50,7 +50,7 @@
           conflictstyle = "diff3";
         };
         pull = {
-          ff = only;
+          ff = "only";
           rebase = true;
         };
         push = {
