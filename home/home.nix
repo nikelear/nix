@@ -118,17 +118,30 @@
           "gca" = "git commit --amend";
           "gp" = "git push";
           "reload" = "exec $SHELL -l";
-          "rebuild" = "sudo nixos-rebuild switch --flake .#%";
-          "rehome" = "home-manager switch --flake .#%";
+          "rebuild" = "sudo nixos-rebuild switch --flake ~/nix/#%";
+          "rehome" = "home-manager switch --flake ~/nix/#%";
         };
       };
     };
   };
 
   home = {
+    sessionPath = [
+      "$HOME/.local/bin"
+    ];
     sessionVariables = {
       ABBR_SET_EXPANSION_CURSOR = 1;
       ABBR_SET_LINE_CURSOR = 1;
+    };
+    file = {
+      ".local/bin/phonetic-game" = {
+        executable = true;
+        source = ../scripts/phonetic.sh;
+      };
+      ".local/bin/colcode" = {
+        executable = true;
+        source = ../scripts/colorcode.sh;
+      };
     };
   };
 

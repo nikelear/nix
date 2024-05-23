@@ -16,7 +16,20 @@
 
   outputs = inputs: 
   {
+    # System-wide Configurations
     nixosConfigurations = {
+      
+      mypc = inputs.nixos.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          /etc/nixos/hardware-configuration.nix
+          ./global/configuration.nix
+        ];
+        specialArgs = {
+          nixos-wsl = inputs.nixos-wsl;
+        };
+      };
+
       wsl = inputs.nixos.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
@@ -41,19 +54,12 @@
       };
     };
 
+    # home-manager Configurations
     homeConfigurations = {
       home = inputs.home-manager.lib.homeManagerConfiguration {
         pkgs = import inputs.nixpkgs {
           system = "x86_64-linux";
           config.allowUnfree = true;
-          home.file = {
-            "flflfl" = {
-              text = ''
-                #!/usr/bin/env bash
-                echo "hoge~~~hogehogehoge"
-              '';
-            };
-          };
         };
         extraSpecialArgs = {
           inherit inputs;

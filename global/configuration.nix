@@ -58,7 +58,8 @@
     users.nikelear = {
       shell = pkgs.zsh;
       isNormalUser = true;
-      extraGroups = [ "wheel" ];
+      extraGroups = [ "networkmanager" "wheel" ];
+      packages = with pkgs; [];
     };
   };
 
