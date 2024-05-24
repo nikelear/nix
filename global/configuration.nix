@@ -46,12 +46,7 @@
       "XDG_DATA_HOME" = "$HOME/.local/share";
       "XDG_STATE_HOME" = "$HOME/.local/state";
     };
-    systemPackages = with pkgs; [
-      git
-      vim
-      wget
-      curl
-    ];
+    systemPackages = with pkgs; [];
   };
 
   users = {

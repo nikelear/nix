@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       # sudo nixos-generate-config
-      /etc/nixos/hardware-configuration.nix
+      # ./hardware-configuration.nix
     ];
 
   # Bootloader.

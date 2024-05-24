@@ -22,7 +22,7 @@
       mypc = inputs.nixos.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          /etc/nixos/hardware-configuration.nix
+          ./global/pc.nix
           ./global/configuration.nix
         ];
         specialArgs = {

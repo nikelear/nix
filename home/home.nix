@@ -1,17 +1,10 @@
 { pkgs, ... }:
 {
 
-  home = rec {
-    username = "nikelear";
-    homeDirectory = "/home/${username}";
-    stateVersion = "23.11";
-    packages = [
-      pkgs.ghq
-      pkgs.eza
-      pkgs.bat
-      pkgs.ripgrep
-    ];
-  };
+  imports = [
+    modules/outline.nix 
+  ];
+
 
   programs = {
 
@@ -24,6 +17,9 @@
         set number
         set relativenumber
       '';
+    };
+    neovim = {
+      enable = true;
     };
 
     git = {
@@ -64,7 +60,6 @@
         # mac
         "._*"
         ".DS_Store"
-
         # system
         "*~"
         ".direnv"
@@ -73,11 +68,9 @@
         "*.swp"
         "*.zwc"
         "*.log"
-
         # output
         "target"
         "result"
-
         # c
         "compile_commands.json"
         "compile_flags.txt"
@@ -105,6 +98,10 @@
           "git commit -m*"
         ];
       };
+      initExtra = ''
+        bindkey '^N' history-substring-search-backward
+        bindkey '^P' history-substring-search-forward
+      '';
       shellAliases = {};
       zsh-abbr = {
         enable = true;
@@ -121,26 +118,6 @@
           "rebuild" = "sudo nixos-rebuild switch --flake ~/nix/#%";
           "rehome" = "home-manager switch --flake ~/nix/#%";
         };
-      };
-    };
-  };
-
-  home = {
-    sessionPath = [
-      "$HOME/.local/bin"
-    ];
-    sessionVariables = {
-      ABBR_SET_EXPANSION_CURSOR = 1;
-      ABBR_SET_LINE_CURSOR = 1;
-    };
-    file = {
-      ".local/bin/phonetic-game" = {
-        executable = true;
-        source = ../scripts/phonetic.sh;
-      };
-      ".local/bin/colcode" = {
-        executable = true;
-        source = ../scripts/colorcode.sh;
       };
     };
   };
