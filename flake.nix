@@ -19,9 +19,10 @@
     # System-wide Configurations
     nixosConfigurations = {
       
-      mypc = inputs.nixos.lib.nixosSystem {
+      lenovo = inputs.nixos.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
+          ./hardware/lenovo.nix
           ./global/pc.nix
           ./global/configuration.nix
         ];

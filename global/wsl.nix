@@ -1,5 +1,10 @@
 {
 
+  imports = [
+    # include NixOS-WSL modules
+    nixos-wsl.nixosModules.wsl
+  ];
+  
   wsl = {
     enable = true;
     defaultUser = "nikelear";

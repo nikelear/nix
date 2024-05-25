@@ -8,10 +8,7 @@
 { config, lib, pkgs, nixos-wsl, ... }:
 
 {
-  imports = [
-    # include NixOS-WSL modules
-    nixos-wsl.nixosModules.wsl
-  ];
+  imports = [];
 
   time = {
     timeZone = "Asia/Tokyo";
@@ -30,12 +27,6 @@
     };
   };
 
-  security = {
-    sudo = {
-      enable = true;
-    };
-  };
-
   environment = {
     sessionVariables = {
       RSYNC_RSH = "ssh";
@@ -51,16 +42,9 @@
 
   users = {
     users.nikelear = {
-      shell = pkgs.zsh;
       isNormalUser = true;
       extraGroups = [ "networkmanager" "wheel" ];
       packages = with pkgs; [];
-    };
-  };
-
-  programs = {
-    zsh = {
-      enable = true;
     };
   };
 
