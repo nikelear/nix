@@ -16,7 +16,7 @@
   # Enable networking
   networking = {
     networkmanager.enable = true;
-    wireless.enable = true;
+    # wireless.enable = true;
   };
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -53,6 +53,7 @@
 
   # Enable sound with pipewire.
   sound.enable = true;
+  hardware.pulseaudio.enable = false;
   services = {
     # Enable the OpenSSH daemon.
     openssh.enable = true;
