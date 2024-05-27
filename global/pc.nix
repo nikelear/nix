@@ -11,7 +11,11 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  console.keyMap = "jp106";
+  console = {
+    # keyMap = "jp106";
+
+    useXkbConfig = true;
+  };
 
   # Enable networking
   networking = {
@@ -46,6 +50,22 @@
       LC_TELEPHONE = "ja_JP.UTF-8";
       LC_TIME = "ja_JP.UTF-8";
     };
+    inputMethod = {
+      enabled = "fcitx5";
+      fcitx5.addons = with pkgs; [
+        fcitx5-mozc
+      ];
+    };
+  };
+
+  fonts = {
+    fonts = with pkgs; [
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-extra
+      noto-fonts-emoji
+      udev-gothic
+    ];
   };
 
   # Enable RealTimeKit
@@ -66,6 +86,7 @@
       # Configure keymap in X11
       layout = "jp";
       xkbVariant = "";
+      xkbOptions = "ctrl:nocaps";
       libinput.enable = true;
     };
 
