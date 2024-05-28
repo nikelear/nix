@@ -1,3 +1,5 @@
+{ pkgs, nixos-wsl, ... }:
+
 {
 
   imports = [
