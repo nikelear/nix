@@ -10,6 +10,15 @@
 
     home-manager.enable = true;
 
+    tmux = {
+      enable = true;
+      clock24 = true;
+      shell = "\${pkgs.zsh}/bin/zsh";
+      newSession = true;
+      mouse = true;
+      keyMode = "vi";
+    };
+
     vim = {
       enable = true;
       defaultEditor = true;
