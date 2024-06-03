@@ -13,7 +13,7 @@
     tmux = {
       enable = true;
       clock24 = true;
-      shell = "$HOME/.nix-profile/bin/zsh";
+      shell = "${pkgs.zsh}/bin/zsh";
       newSession = true;
       mouse = true;
       keyMode = "vi";
