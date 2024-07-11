@@ -2,20 +2,12 @@
 
 {
 
-  home = rec {
-    username = "nikelear";
-    homeDirectory = "/home/${username}";
-  };
-
   home = {
-    stateVersion = "23.11";
     packages = [
       pkgs.ghq
       pkgs.eza
       pkgs.bat
       pkgs.ripgrep
-      # pkgs.vim
-      # pkgs.git
     ];
     sessionPath = [
       "$HOME/.local/bin"
