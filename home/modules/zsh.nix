@@ -23,7 +23,8 @@
     initExtra = ''
       bindkey '^N' history-substring-search-backward
       bindkey '^P' history-substring-search-forward
-    '';
+      source '' + zsh/sh/zsh-vim.sh
+      + '''';
     shellAliases = {};
     zsh-abbr = {
       enable = true;

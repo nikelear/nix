@@ -20,7 +20,12 @@ if [ ! -L $tgt/code ]; then
   userprofile=$(cd /mnt/c && cmd /C echo %USERPROFILE% | tr -d '\r')
   fd=$(echo "$userprofile" | awk -F'\\' '{print $NF}')
   code="/mnt/c/Users/$fd/AppData/Local/Programs/Microsoft VS Code/bin/code"
-  ln -s "$code" $tgt/code
+  if [ -f "$code" ]; then
+    ln -s "$code" $tgt/code
+  fi
 fi
-  
-sudo git config --system credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager.exe"
+
+# add git credential manager for windows
+if [ ! -z $(which git)]; then
+  sudo git config --system credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager.exe"
+fi
