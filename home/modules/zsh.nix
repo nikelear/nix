@@ -1,10 +1,15 @@
 { ... }:
 {
   programs.zsh = {
+
     enable = true;
+
     dotDir = ".config/zsh";
+
     autosuggestion.enable = true;
+
     syntaxHighlighting.enable = true;
+
     history = {
       save = 100000;
       size = 100000;
@@ -20,12 +25,16 @@
         "git commit -m*"
       ];
     };
+
     initExtra = ''
       bindkey '^N' history-substring-search-backward
       bindkey '^P' history-substring-search-forward
-      source '' + zsh/sh/zsh-vim.sh
-      + '''';
-    shellAliases = {};
+      '';
+
+    shellAliases = {
+      "cat" = "bat";
+    };
+
     zsh-abbr = {
       enable = true;
       abbreviations = {
@@ -42,10 +51,11 @@
         "rehome" = "home-manager switch --flake ~/nix/#%";
       };
     };
-    oh-my-zsh = {
-      enable = false;
-    };
-  };
 
+    oh-my-zsh = {
+      enable = true;
+    };
+
+  };
 }
 

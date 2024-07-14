@@ -26,6 +26,6 @@ if [ ! -L $tgt/code ]; then
 fi
 
 # add git credential manager for windows
-if [ ! -z $(which git)]; then
-  sudo git config --system credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager.exe"
-fi
+[ ! command -v git &> /dev/null ] && exit 0
+sudo git config --system credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager.exe"
+
