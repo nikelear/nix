@@ -3,11 +3,12 @@
 {
 
   home = {
-    packages = [
-      pkgs.ghq
-      pkgs.eza
-      pkgs.bat
-      pkgs.ripgrep
+    packages = with pkgs; [
+      ghq
+      eza
+      bat
+      ripgrep
+      hyperfine
     ];
     sessionPath = [
       "$HOME/.local/bin"

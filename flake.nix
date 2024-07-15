@@ -5,7 +5,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
     nixos = {
       url = "github:NixOS/nixpkgs/nixos-24.05";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL";
@@ -60,6 +59,21 @@
 
     # home-manager Configurations
     homeConfigurations = {
+
+      wsl = inputs.home-manager.lib.homeManagerConfiguration {
+        pkgs = import inputs.nixpkgs {
+          system = "x86_64-linux";
+          config.allowUnfree = true;
+        };
+        extraSpecialArgs = {
+          inherit inputs;
+        };
+        modules = [
+          ./home/home.nix
+          ./home/wsl.nix
+        ];
+      };
+
       home = inputs.home-manager.lib.homeManagerConfiguration {
         pkgs = import inputs.nixpkgs {
           system = "x86_64-linux";
