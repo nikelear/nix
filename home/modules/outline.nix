@@ -4,6 +4,7 @@
 
   home = {
     packages = with pkgs; [
+      wget
       ghq
       eza
       bat
