@@ -29,6 +29,7 @@
     initExtra = ''
       bindkey '^N' history-substring-search-backward
       bindkey '^P' history-substring-search-forward
+      source ${sh/prompt.sh}
       '';
 
     shellAliases = {

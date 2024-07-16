@@ -2,6 +2,7 @@
 
 {
   programs = {
+    # starship.enable = true;
     git = {
       extraConfig = {
         credential = {
