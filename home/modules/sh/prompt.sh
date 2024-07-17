@@ -1,3 +1,4 @@
+PROMPT=$'%F{green}%n%f%F{red}@%m%f % %F{yellow}Loading... %f\n$ '
 function __prompt_git {
   local gst="$(git status --porcelain --branch 2> /dev/null)"
   [[ -z $gst ]] && return 0
@@ -35,7 +36,7 @@ function async_prompt_update() {
 function apply_prompt_result() {
     if [[ -f /tmp/prompt_result ]]; then
         local result=$(< /tmp/prompt_result)
-        PROMPT="%F{green}%n%f%F{red}@%m%f % ${result}%f"$'\n$'
+        PROMPT="%F{green}%n%f%F{red}@%m%f % ${result}%f"$'\n$ '
     fi
 }
 
