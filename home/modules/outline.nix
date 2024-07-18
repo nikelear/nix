@@ -10,6 +10,7 @@
       bat
       ripgrep
       hyperfine
+      nix-zsh-completions
     ];
     sessionPath = [
       "$HOME/.local/bin"

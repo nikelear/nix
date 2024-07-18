@@ -37,7 +37,8 @@
       "XDG_DATA_HOME" = "$HOME/.local/share";
       "XDG_STATE_HOME" = "$HOME/.local/state";
     };
-    systemPackages = with pkgs; [];
+    systemPackages = with pkgs; [
+    ];
   };
 
   users = {
@@ -45,6 +46,14 @@
       isNormalUser = true;
       extraGroups = [ "networkmanager" "wheel" ];
       packages = with pkgs; [];
+    };
+  };
+
+  virtualisation.docker.enable = true;
+  
+  programs = {
+    zsh = {
+      enable = true;
     };
   };
 

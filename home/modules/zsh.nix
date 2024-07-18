@@ -52,11 +52,6 @@
         "rehome" = "home-manager switch --flake ~/nix/#%";
       };
     };
-
-    oh-my-zsh = {
-      enable = true;
-    };
-
   };
 }
 
