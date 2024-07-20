@@ -8,9 +8,10 @@
       ghq
       eza
       bat
+      fzf
+      zsh-fzf-tab
       ripgrep
       hyperfine
-      nix-zsh-completions
     ];
     sessionPath = [
       "$HOME/.local/bin"

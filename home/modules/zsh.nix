@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   programs.zsh = {
 
@@ -25,12 +25,16 @@
         "git commit -m*"
       ];
     };
+    initExtraFirst = ''
+      fpath+=(${pkgs.nix}/share/zsh/site-functions/ $fpath)
+    '';
 
     initExtra = ''
       bindkey '^N' history-substring-search-backward
       bindkey '^P' history-substring-search-forward
       source ${sh/prompt.sh}
-      '';
+      source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
+    '';
 
     shellAliases = {
       "cat" = "bat";
