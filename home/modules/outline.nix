@@ -2,34 +2,15 @@
 
 {
 
-  home = {
-    packages = with pkgs; [
-      wget
-      ghq
-      eza
-      bat
-      fzf
-      zsh-fzf-tab
-      ripgrep
-      hyperfine
-    ];
-    sessionPath = [
-      "$HOME/.local/bin"
-    ];
-    sessionVariables = {
-      ABBR_SET_EXPANSION_CURSOR = 1;
-      ABBR_SET_LINE_CURSOR = 1;
+  programs = {
+
+    home-manager.enable = true;
+
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
     };
-    file = {
-      ".local/bin/phonetic-game" = {
-        executable = true;
-        source = ../../scripts/phonetic.sh;
-      };
-      ".local/bin/colcode" = {
-        executable = true;
-        source = ../../scripts/colorcode.sh;
-      };
-    };
+
   };
 
 }

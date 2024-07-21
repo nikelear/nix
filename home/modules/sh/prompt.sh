@@ -1,4 +1,3 @@
-PROMPT=$'%F{green}%n%f%F{red}@%m%f % %F{yellow}Loading... %f\n$ '
 function __prompt_git {
   local gst="$(git status --porcelain --branch 2> /dev/null)"
   [[ -z $gst ]] && return 0
@@ -26,7 +25,7 @@ function __prompt_git {
 
   [[ -z $marks ]] || marks="[$marks]"
   
-  echo " ($branch) $marks "
+  echo " %F{magenta}($branch)%f $marks "
 }
 
 function async_prompt_update() {
@@ -36,7 +35,10 @@ function async_prompt_update() {
 function apply_prompt_result() {
     if [[ -f /tmp/prompt_result ]]; then
         local result=$(< /tmp/prompt_result)
-        PROMPT="%F{green}%n%f%F{red}@%m%f % ${result}%f"$'\n$ '
+        local p_pwd=$'%F{cyan}%D %T%f [%~] '
+        local p_name=$'\n%n%F{yellow}@%m%f '
+        local p_icon="%(?,%F{green},%F{red})%(!,#,>>)%f "
+        PROMPT=$p_pwd$result$p_name$p_icon
     fi
 }
 
