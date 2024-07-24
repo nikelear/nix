@@ -3,9 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
-    nixos = {
-      url = "github:NixOS/nixpkgs/nixos-24.05";
-    };
+    nixos.url = "github:NixOS/nixpkgs/nixos-24.05";
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";
