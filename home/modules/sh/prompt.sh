@@ -37,7 +37,7 @@ function apply_prompt_result() {
         local result=$(< /tmp/prompt_result)
         local p_pwd=$'%F{cyan}%D %T%f [%~] '
         local p_name=$'\n%n%F{yellow}@%m%f '
-        local p_icon="%(?,%F{green},%F{red})%(!,#,>>)%f "
+        local p_icon="%(?,%F{green},%F{red})%(!,#,{%L})%f "
         PROMPT=$p_pwd$result$p_name$p_icon
     fi
 }
