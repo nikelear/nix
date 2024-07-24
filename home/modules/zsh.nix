@@ -45,6 +45,7 @@
       abbreviations = {
         ".." = "cd ..";
         "..." = "cd .. && cd ..";
+        "nd" = "nix develop";
         "ga" = "git add";
         "ga." = "git add .";
         "gdh" = "git diff HEAD";
