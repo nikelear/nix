@@ -13,10 +13,9 @@
     stateVersion = "24.05";
     username = "nikelear";
     homeDirectory = "/home/${username}";
-  };
 
-  home = {
     packages = with pkgs; [
+      nix
       wget
       ghq
       eza
@@ -33,6 +32,13 @@
       ABBR_SET_EXPANSION_CURSOR = 1;
       ABBR_SET_LINE_CURSOR = 1;
       EDITOR = "${pkgs.vim}/bin/vim";
+      FPATH = "${
+        pkgs.buildEnv {
+          name = "zsh-comp";
+          paths = packages;
+          pathsToLink = "/share/zsh";
+        }
+      }/share/zsh/site-functions";
     };
     file = {
       ".local/bin/phonetic-game" = {
@@ -45,5 +51,4 @@
       };
     };
   };
-
 }

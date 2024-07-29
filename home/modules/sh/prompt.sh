@@ -15,10 +15,11 @@ function __prompt_git {
   [[ $gst =~ "behind" ]] && marks+="<"
   [[ $gst =~ "ahead" ]] && marks+=">"
   [[ $gst =~ "\?\?" ]] && marks+="?"
-  [[ $gst =~ "[MA][ T] " ]] && marks+="+"
+  [[ $gst =~ "[MA][ MTD] " ]] && marks+="+"
   [[ $gst =~ "R[ MTD] " ]] && marks+="»"
   [[ $gst =~ "[ MTARC]M " ]] && marks+="!"
   [[ $gst =~ "[ MTARC]D " ]] && marks+="x"
+  [[ $gst =~ "D  " ]] && marks+="X"
   [[ $gst =~ "UU " ]] && marks+="="
   
   [[ $(git stash list) ]] && marks+="$"

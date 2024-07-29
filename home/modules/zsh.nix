@@ -25,9 +25,6 @@
         "git commit -m*"
       ];
     };
-    initExtraFirst = ''
-      fpath+=(${pkgs.nix}/share/zsh/site-functions/ $fpath)
-    '';
 
     initExtra = ''
       bindkey '^N' history-substring-search-backward
