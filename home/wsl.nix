@@ -10,4 +10,21 @@
       };
     }; 
   };
+  home = {
+    file = {
+      ".local/bin/cmd" = {
+        executable = true;
+        source = ../scripts/cmd.sh;
+      };
+      ".local/bin/firefox" = {
+        executable = true;
+        source = ../scripts/firefox.sh;
+      };
+      ".local/bin/code" = {
+        executable = true;
+        source = ../scripts/code.sh;
+      };
+    };
+  };
+
 }
