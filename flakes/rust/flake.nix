@@ -29,9 +29,8 @@
             toolchain
           ];
           shellHook = ''
-            exec $SHELL -l
+            export FPATH=${toolchain}/share/zsh/site-functions/
           '';
-          FPATH = "${toolchain}/share/zsh/site-functions/";
         };
       }
     );
