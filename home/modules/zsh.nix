@@ -30,6 +30,7 @@
       bindkey '^N' history-substring-search-backward
       bindkey '^P' history-substring-search-forward
       source ${sh/prompt.sh}
+      source ${sh/function.sh}
       source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
     '';
 
@@ -43,11 +44,6 @@
         ".." = "cd ..";
         "..2" = "cd .. && cd ..";
         "..3" = "cd .. && cd .. && cd ..";
-        "l" = "ls -CF";
-        "la" = "ls -aCF";
-        "ll" = "ls -lF";
-        "lla" = "ls -laF";
-        "nd" = "nix develop -c zsh";
         "ga" = "git add";
         "ga." = "git add .";
         "gco" = "git checkout";
@@ -57,6 +53,13 @@
         "gdh" = "git diff HEAD";
         "gps" = "git push";
         "gpl" = "git pull";
+        "l" = "ls -CF";
+        "la" = "ls -aCF";
+        "ll" = "ls -lF";
+        "lla" = "ls -laF";
+        "mm" = "mkdir -p % && cd $_";
+        "nd" = "nix develop -c zsh";
+        "nsp" = "nix shell nixpkgs#%";
         "reload" = "exec $SHELL -l";
         "rebuild" = "sudo nixos-rebuild switch --flake ~/nix/#%";
         "rehome" = "home-manager switch --flake ~/nix/#%";
@@ -64,4 +67,3 @@
     };
   };
 }
-
