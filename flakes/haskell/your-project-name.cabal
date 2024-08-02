@@ -1,0 +1,33 @@
+cabal-version:      2.4
+name:               your-project-name
+version:            0.1.0.0
+
+-- A short (one-line) description of the package.
+synopsis:           Example Haskell project using the time package
+
+-- A longer description of the package.
+description:        This is an example Haskell project that demonstrates
+                    the use of the time package for date and time operations.
+
+-- The license under which the package is released.
+license:            MIT
+author:             Your Name
+maintainer:         your.email@example.com
+
+-- A copyright notice.
+-- copyright:
+-- category:
+extra-source-files: CHANGELOG.md
+
+executable your-project-name
+    main-is:          Main.hs
+
+    -- Modules included in this executable, other than Main.
+    -- other-modules:
+
+    -- LANGUAGE extensions used by modules in this package.
+    -- other-extensions:
+    build-depends:    base ^>=4.18.0.0,
+                      time ^>=1.12
+    hs-source-dirs:   app
+    default-language: Haskell2010
