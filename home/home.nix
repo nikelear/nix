@@ -2,7 +2,6 @@
 {
 
   imports = [
-    modules/outline.nix
     modules/zsh.nix
     modules/git.nix
     modules/vim.nix
@@ -51,4 +50,7 @@
       };
     };
   };
+
+  programs.home-manager.enable = true;
+
 }

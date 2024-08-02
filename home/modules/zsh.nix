@@ -51,6 +51,7 @@
         "gca" = "git commit --amend";
         "gd" = "git diff";
         "gdh" = "git diff HEAD";
+        "gds" = "git diff HEAD~1 HEAD";
         "gps" = "git push";
         "gpl" = "git pull";
         "l" = "ls -CF";
