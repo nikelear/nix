@@ -32,6 +32,13 @@
           shellHook = ''
             python --version
           '';
+          FPATH = "${
+            pkgs.buildEnv {
+              name = "zsh-comp";
+              paths = packages;
+              pathsToLink = "/share/zsh";
+            }
+          }/share/zsh/site-functions";
         };
       });
 }

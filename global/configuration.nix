@@ -50,7 +50,6 @@
 
   users = {
     users.nikelear = {
-      hashedPassword = "$6$3KMl/aj3a1KHBo/X$Jmwr7Q7TPnfSTOCXjQvDPYNz.5AXOfFQKmyxdgwRL.zzDFnqUKL6POznVyPxWa5wS8Rnij4ZvCSY.o125IAd90";
       isNormalUser = true;
       extraGroups = [ "networkmanager" "wheel" ];
       packages = with pkgs; [];
