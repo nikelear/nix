@@ -60,6 +60,7 @@
         "lla" = "ls -laF";
         "mm" = "mkdir -p % && cd $_";
         "nd" = "nix develop -c zsh";
+        "nr" = "nix run";
         "nsp" = "nix shell nixpkgs#%";
         "reload" = "exec $SHELL -l";
         "rebuild" = "sudo nixos-rebuild switch --flake ~/nix/#%";
