@@ -14,15 +14,29 @@
     neovim = {
       enable = true;
       plugins = with pkgs.vimPlugins; [
-        yankring
-        vim-nix
+        nvim-treesitter
+        nvim-autopairs
+        nvim-surround
+        lualine-nvim
+        gitsigns-nvim
+        comment-nvim
+        which-key-nvim
+        telescope-nvim
+        telescope-coc-nvim
+        indent-blankline-nvim
+        vim-sleuth
+        vim-endwise
+        tokyonight-nvim
       ];
-      extraConfig = builtins.readFile ./.vimrc;
+      extraLuaConfig = ''
+        vim.cmd[[colorscheme tokyonight]]
+        ${builtins.readFile ./nvim/option.lua}
+        ${builtins.readFile ./nvim/keymap.lua}
+        ${builtins.readFile ./nvim/coc.lua}
+      '';
       coc = {
         enable = true;
         settings = {
-          "suggest.enablePreview" = true;
-          "suggest.enablePreselect" = false;
           languageserver = {
             clangd = {
               command = "clangd";
