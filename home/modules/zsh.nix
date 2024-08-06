@@ -59,6 +59,7 @@
         "ll" = "ls -lF";
         "lla" = "ls -laF";
         "mm" = "mkdir -p % && cd $_";
+        "n" = "nvim";
         "nd" = "nix develop -c zsh";
         "nr" = "nix run";
         "nsp" = "nix shell nixpkgs#%";

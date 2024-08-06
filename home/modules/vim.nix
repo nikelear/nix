@@ -26,10 +26,16 @@
         indent-blankline-nvim
         vim-sleuth
         vim-endwise
-        tokyonight-nvim
+        {
+          plugin = tokyonight-nvim;
+          config = ''vim.cmd[[colorscheme tokyonight]]'';
+        }
       ];
       extraLuaConfig = ''
-        vim.cmd[[colorscheme tokyonight]]
+        
+        require("nvim-autopairs").setup {}
+        require("nvim-surround").setup()
+        require('lualine').setup {}
         ${builtins.readFile ./nvim/option.lua}
         ${builtins.readFile ./nvim/keymap.lua}
         ${builtins.readFile ./nvim/coc.lua}
