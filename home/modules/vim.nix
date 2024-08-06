@@ -14,31 +14,83 @@
     neovim = {
       enable = true;
       plugins = with pkgs.vimPlugins; [
-        nvim-treesitter
-        nvim-autopairs
-        nvim-surround
-        lualine-nvim
-        gitsigns-nvim
-        comment-nvim
-        which-key-nvim
-        telescope-nvim
-        telescope-coc-nvim
-        indent-blankline-nvim
-        vim-sleuth
-        vim-endwise
         {
           plugin = tokyonight-nvim;
-          config = ''vim.cmd[[colorscheme tokyonight]]'';
+          config = ''colorscheme tokyonight'';
         }
+        {
+          plugin = nvim-treesitter;
+          config = ''
+          lua << EOF
+          ${builtins.readFile ./nvim/plugins/treesitter.lua}
+          EOF
+          '';
+        }
+        {
+          plugin = nvim-autopairs;
+          config = ''
+          lua << EOF
+          require("nvim-autopairs").setup {}
+          EOF
+          '';
+        }
+        {
+          plugin = nvim-surround;
+          config = ''
+          lua << EOF
+          require("nvim-surround").setup()
+          EOF
+          '';
+        }
+        {
+          plugin = lualine-nvim;
+          config = ''
+          lua << EOF
+          require('lualine').setup {}
+          EOF
+          '';
+        }
+        {
+          plugin = gitsigns-nvim;
+          config = ''
+          lua << EOF
+          ${builtins.readFile ./nvim/plugins/gitsigns.lua}
+          EOF
+          '';
+        }
+        {
+          plugin = which-key-nvim;
+          config = ''
+          lua << EOF
+          ${builtins.readFile ./nvim/plugins/which-key.lua}
+          EOF
+          '';
+        }
+        {
+          plugin = comment-nvim;
+          config = ''
+          lua << EOF
+          ${builtins.readFile ./nvim/plugins/comment.lua}
+          EOF
+          '';
+        }
+        {
+          plugin = indent-blankline-nvim;
+          config = ''
+          lua << EOF
+          require("ibl").setup()
+          EOF
+          '';
+        }
+        telescope-nvim
+        telescope-coc-nvim
+        vim-sleuth
       ];
       extraLuaConfig = ''
-        
-        require("nvim-autopairs").setup {}
-        require("nvim-surround").setup()
-        require('lualine').setup {}
+        ${builtins.readFile ./nvim/coc.lua}
         ${builtins.readFile ./nvim/option.lua}
         ${builtins.readFile ./nvim/keymap.lua}
-        ${builtins.readFile ./nvim/coc.lua}
+        ${builtins.readFile ./nvim/autocmd.lua}
       '';
       coc = {
         enable = true;

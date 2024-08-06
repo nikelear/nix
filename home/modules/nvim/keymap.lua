@@ -37,23 +37,23 @@ vim.keymap.set('n', '<leader>su', '<cmd>Telescope undo<CR>', { desc = '[S]earch 
 vim.keymap.set('n', '<C-f>', '<cmd>Telescope file_browser<CR>', { desc = '[F]ile Brouser' })
 vim.keymap.set('i', '<C-f>', '<cmd>Telescope file_browser<CR>', { desc = '[F]ile Brouser' })
 
--- local function telescope_plugin_find()
---   require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root })
--- end
--- vim.keymap.set('n','<leader>sp', telescope_plugin_find, { desc = '[S]earch [P]lugin files' })
+local function telescope_plugin_find()
+  require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root })
+end
+vim.keymap.set('n','<leader>sp', telescope_plugin_find, { desc = '[S]earch [P]lugin files' })
 
--- local function telescope_buffer_fuzzy_find()
---   require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
---     winblend = 10,
---     previewer = false,
---   })
--- end
--- vim.keymap.set('n', '<leader>/', telescope_buffer_fuzzy_find, { desc = '[/] Fuzzily search in current buffer' })
+local function telescope_buffer_fuzzy_find()
+  require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+    winblend = 10,
+    previewer = false,
+  })
+end
+vim.keymap.set('n', '<leader>/', telescope_buffer_fuzzy_find, { desc = '[/] Fuzzily search in current buffer' })
 
--- local function telescope_live_grep_open_files()
---   require('telescope.builtin').live_grep {
---     grep_open_files = true,
---     prompt_title = 'Live Grep in Open Files',
---   }
--- end
--- vim.keymap.set('n', '<leader>s/', telescope_live_grep_open_files, { desc = '[S]earch [/] in Open Files' })
+local function telescope_live_grep_open_files()
+  require('telescope.builtin').live_grep {
+    grep_open_files = true,
+    prompt_title = 'Live Grep in Open Files',
+  }
+end
+vim.keymap.set('n', '<leader>s/', telescope_live_grep_open_files, { desc = '[S]earch [/] in Open Files' })

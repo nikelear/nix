@@ -1,3 +1,8 @@
+-- lua load faster
+vim.loader.enable()
+-- default color
+-- vim.cmd[[colorscheme default]]
+
 -- set leader keys
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -26,6 +31,9 @@ vim.o.virtualedit = 'onemore'
 vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.incsearch = true
+-- update time
+vim.o.updatetime = 250
+vim.o.timeoutlen = 300
 
 -- completion settings
 vim.o.completeopt = 'menuone,noselect'
@@ -33,7 +41,7 @@ vim.o.completeopt = 'menuone,noselect'
 vim.o.pumheight = 10
 
 -- terminal 256 colors
--- vim.o.termguicolors = true
+vim.o.termguicolors = true
 vim.opt.winblend = 0
 -- vim.opt.pumblend = 0
 
