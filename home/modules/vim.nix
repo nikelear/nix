@@ -14,33 +14,10 @@
     neovim = {
       enable = true;
       plugins = with pkgs.vimPlugins; [
+        vim-sleuth
         {
           plugin = tokyonight-nvim;
           config = ''colorscheme tokyonight'';
-        }
-        {
-          plugin = nvim-treesitter;
-          config = ''
-          lua << EOF
-          ${builtins.readFile ./nvim/plugins/treesitter.lua}
-          EOF
-          '';
-        }
-        {
-          plugin = nvim-autopairs;
-          config = ''
-          lua << EOF
-          require("nvim-autopairs").setup {}
-          EOF
-          '';
-        }
-        {
-          plugin = nvim-surround;
-          config = ''
-          lua << EOF
-          require("nvim-surround").setup()
-          EOF
-          '';
         }
         {
           plugin = lualine-nvim;
@@ -83,9 +60,62 @@
           '';
         }
         telescope-nvim
-        telescope-coc-nvim
-        vim-sleuth
-      ];
+        {
+          plugin = nvim-hlslens;
+          config = ''
+          lua << EOF
+          require("hlslens").setup()
+          EOF
+          '';
+        }
+        {
+          plugin = nvim-autopairs;
+          config = ''
+          lua << EOF
+          require("nvim-autopairs").setup {}
+          EOF
+          '';
+        }
+        {
+          plugin = nvim-surround;
+          config = ''
+          lua << EOF
+          require("nvim-surround").setup()
+          EOF
+          '';
+        }
+        {
+          plugin = nvim-treesitter;
+          config = ''
+          lua << EOF
+          ${builtins.readFile ./nvim/plugins/treesitter.lua}
+          EOF
+          '';
+        }
+      ] ++ (with nvim-treesitter-parsers; [
+        bash
+        c
+        cpp
+        haskell
+        java
+        python
+        rust
+
+        html
+        css
+        javascript
+        typescript
+        tsx
+
+        markdown
+        dockerfile
+        json
+        lua
+        nix
+        toml
+        yaml
+        vim
+      ]);
       extraLuaConfig = ''
         ${builtins.readFile ./nvim/coc.lua}
         ${builtins.readFile ./nvim/option.lua}
@@ -95,6 +125,8 @@
       coc = {
         enable = true;
         settings = {
+          "suggest.labelMaxLength" = 50;
+          "suggest.detailMaxLength" = 100;
           languageserver = {
             clangd = {
               command = "clangd";
