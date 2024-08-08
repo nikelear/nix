@@ -18,7 +18,7 @@ vim.o.fileformat = 'unix'
 -- highlight on search
 vim.o.hlsearch = false
 -- mouse mode
-vim.o.mouse = 'a'
+-- vim.o.mouse = 'a'
 -- -- share clipboard
 vim.o.clipboard = 'unnamedplus'
 -- keep indent when break

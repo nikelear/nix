@@ -127,6 +127,8 @@
         settings = {
           "suggest.labelMaxLength" = 50;
           "suggest.detailMaxLength" = 100;
+          "diagnostic.virtualText" = true;
+          "diagnostic.virtualTextCurrentLineOnly" = false;
           languageserver = {
             clangd = {
               command = "clangd";

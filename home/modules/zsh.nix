@@ -44,6 +44,7 @@
         ".." = "cd ..";
         "..2" = "cd .. && cd ..";
         "..3" = "cd .. && cd .. && cd ..";
+        "ee" = "nvim ~/nix";
         "ga" = "git add";
         "ga." = "git add .";
         "gco" = "git checkout";
@@ -59,7 +60,8 @@
         "ll" = "ls -lF";
         "lla" = "ls -laF";
         "mm" = "mkdir -p % && cd $_";
-        "n" = "nvim";
+        "v" = "nvim";
+        "v." = "nvim .";
         "nd" = "nix develop -c zsh";
         "nr" = "nix run";
         "nsp" = "nix shell nixpkgs#%";
