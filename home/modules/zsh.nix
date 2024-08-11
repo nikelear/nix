@@ -47,6 +47,7 @@
         "ee" = "nvim ~/nix";
         "ga" = "git add";
         "ga." = "git add .";
+        "gap" = "git add -p";
         "gco" = "git checkout";
         "gcm" = "git commit -m \"%\"";
         "gca" = "git commit --amend";
