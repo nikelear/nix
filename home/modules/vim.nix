@@ -2,6 +2,7 @@
 {
   home.packages = with pkgs; [
     clang-tools
+    haskell-language-server
   ];
   programs = {
     vim = {
