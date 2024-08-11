@@ -82,6 +82,7 @@
         };
         modules = [
           ./home/home.nix
+          ./home/linux.nix
         ];
       };
 

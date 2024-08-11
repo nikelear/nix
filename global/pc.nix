@@ -40,6 +40,7 @@
   i18n = {
     defaultLocale = "en_US.UTF-8";
     extraLocaleSettings = {
+      LC_MESSAGES = "en_US.UTF-8";
       LC_ADDRESS = "ja_JP.UTF-8";
       LC_IDENTIFICATION = "ja_JP.UTF-8";
       LC_MEASUREMENT = "ja_JP.UTF-8";
@@ -48,7 +49,7 @@
       LC_NUMERIC = "ja_JP.UTF-8";
       LC_PAPER = "ja_JP.UTF-8";
       LC_TELEPHONE = "ja_JP.UTF-8";
-      LC_TIME = "ja_JP.UTF-8";
+      LC_TIME = "en_US.UTF-8";
     };
     inputMethod = {
       enabled = "fcitx5";
@@ -59,12 +60,13 @@
   };
 
   fonts = {
-    fonts = with pkgs; [
+    packages = with pkgs; [
       noto-fonts
       noto-fonts-cjk
       noto-fonts-extra
       noto-fonts-emoji
-      udev-gothic
+      monaspace
+      fira-code-nerdfont
     ];
   };
 
@@ -73,7 +75,10 @@
 
   # Enable sound with pipewire.
   sound.enable = true;
-  hardware.pulseaudio.enable = false;
+  hardware = {
+    pulseaudio.enable = false;
+    bluetooth.enable = true;
+  };
   services = {
     # Enable the OpenSSH daemon.
     openssh.enable = true;
@@ -81,15 +86,21 @@
     xserver = {
       enable = true;
       # Configure desktop environment
-      displayManager.gdm.enable = true;
-      desktopManager.gnome.enable = true;
+      displayManager = {
+        gdm.enable = true;
+      };
+      desktopManager = {
+        gnome.enable = true;
+      };
       # Configure keymap in X11
-      layout = "jp";
-      xkbVariant = "";
-      xkbOptions = "ctrl:nocaps";
-      libinput.enable = true;
+      xkb = {
+        layout = "jp";
+        variant = "";
+        options = "ctrl:nocaps";
+      };
     };
 
+    libinput.enable = true;
     # Enable CUPS to print documents.
     printing.enable = true;
 
