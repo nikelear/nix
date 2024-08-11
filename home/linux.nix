@@ -25,12 +25,9 @@
   };
   
   programs = {
-    firefox = {
-      enable = true;
-    };
-    vscode = {
-      enable = true;
-    };
+    git-credential-oauth.enable = true;
+    firefox.enable = true;
+    vscode.enable = true;
     alacritty = {
       enable = true;
       settings = {
