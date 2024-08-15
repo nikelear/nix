@@ -1,17 +1,13 @@
--- Lazy
-vim.keymap.set('n','<C-l>','<cmd>Lazy<CR>')
-
 -- general
-vim.keymap.set('n',"<C-s>",'<cmd>write<CR>')
-vim.keymap.set('i',"<C-s>",'<C-o>:w<CR>')
-vim.keymap.set('n','<leader><esc>','<cmd>q!<CR>')
+vim.keymap.set('n', "<C-s>",'<cmd>write<CR>')
+vim.keymap.set('i', "<C-s>",'<cmd>write<CR>')
+vim.keymap.set('n', '<leader><esc>','<cmd>q!<CR>')
+vim.keymap.set('n', '<leader>gg', '<cmd>LazyGit<cr>', { desc = 'Lazy[G]it' })
+
 
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-
--- buffer
-vim.keymap.set('n', '<leader>bd', '<cmd>bd<CR>', { desc = '[B]uffer Delete' })
 
 -- diagnostic
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
@@ -32,7 +28,7 @@ vim.keymap.set('n', '<leader>sG', '<cmd>LiveGrepGitRoot<cr><CR>', { desc = '[S]e
 vim.keymap.set('n', '<leader>sd', '<cmd>Telescope diagnostics<CR>', { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>sr', '<cmd>Telescope resume<CR>', { desc = '[S]earch [R]esume' })
 vim.keymap.set('n', '<leader>su', '<cmd>Telescope undo<CR>', { desc = '[S]earch [U]ndo History' })
--- vim.keymap.set("n", "<leader>lg", require("telescope-live-grep-args.shortcuts").grep_word_under_cursor, { desc = '[L]ive [G]rep' })
+vim.keymap.set("n", "<leader>lg", require("telescope-live-grep-args.shortcuts").grep_word_under_cursor, { desc = '[L]ive [G]rep' })
 
 vim.keymap.set('n', '<C-f>', '<cmd>Telescope file_browser<CR>', { desc = '[F]ile Brouser' })
 vim.keymap.set('i', '<C-f>', '<cmd>Telescope file_browser<CR>', { desc = '[F]ile Brouser' })

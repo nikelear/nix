@@ -35,7 +35,6 @@
     '';
 
     shellAliases = {
-      "cat" = "bat";
     };
 
     zsh-abbr = {
@@ -44,7 +43,8 @@
         ".." = "cd ..";
         "..2" = "cd .. && cd ..";
         "..3" = "cd .. && cd .. && cd ..";
-        "ee" = "nvim ~/nix";
+        "ee" = "cd ~/nix";
+        "ev" = "cd ~/nix && nvim .";
         "ga" = "git add";
         "ga." = "git add .";
         "gap" = "git add -p";
@@ -63,6 +63,7 @@
         "mm" = "mkdir -p % && cd $_";
         "v" = "nvim";
         "vv" = "nvim .";
+        "nb" = "nix build";
         "nd" = "nix develop -c zsh";
         "nr" = "nix run";
         "nsp" = "nix shell nixpkgs#%";

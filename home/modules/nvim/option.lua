@@ -19,14 +19,14 @@ vim.o.fileformat = 'unix'
 vim.o.hlsearch = false
 -- mouse mode
 vim.o.mouse = ''
--- -- share clipboard
-vim.o.clipboard = 'unnamedplus'
+-- share clipboard
+-- vim.o.clipboard = 'unnamedplus'
 -- keep indent when break
 vim.o.breakindent = true
 -- save history
 vim.o.undofile = true
 -- lastcol
-vim.o.virtualedit = 'onemore'
+-- vim.o.virtualedit = 'onemore'
 -- Case-insensitive searching UNLESS \C or capital in search
 vim.o.ignorecase = true
 vim.o.smartcase = true

@@ -7,32 +7,32 @@
   };
 
   outputs = { self, nixpkgs, flake-utils }:
-    let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in
-    {
+    flake-utils.lib.eachDefaultSystem (system:
+      let
+        pkgs = nixpkgs.legacyPackages.${system};
+      in
+      {
 
-      packages.${system}.default = pkgs.stdenv.mkDerivation {
-        name = "myapp";
-        src = self;
-        nativeBuildInputs = [ pkgs.cmake ];
-        buildPhase = ''
-          cmake .
-          make
-        '';
-        installPhase = ''
-          make install
-        '';
-      };
+        packages.default = pkgs.stdenv.mkDerivation {
+          name = "myapp";
+          src = self;
+          nativeBuildInputs = [ pkgs.cmake ];
+          buildPhase = ''
+            cmake .
+            make
+          '';
+          installPhase = ''
+            make install
+          '';
+        };
 
-      devShells.${system}.default = pkgs.mkShell {
-        buildInputs = with pkgs; [
-          gdb
-          cmake
-        ];
-      };
-
-    };
+        devShells.default = pkgs.mkShell {
+          buildInputs = with pkgs; [
+            gdb
+            cmake
+          ];
+        };
+      }
+    );
 
 }

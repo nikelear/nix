@@ -4,8 +4,7 @@
     "org/gnome/shell" = {
       favorite-apps = [
         "firefox.desktop"
-        "Alacritty.desktop"
-        "code.desktop"
+        "org.gnome.Epiphany.desktop"
         "org.gnome.Console.desktop"
         "org.gnome.Nautilus.desktop"
         "org.gnome.TextEditor.desktop"
@@ -28,35 +27,6 @@
     git-credential-oauth.enable = true;
     firefox.enable = true;
     vscode.enable = true;
-    alacritty = {
-      enable = true;
-      settings = {
-        font = {
-          normal = {
-            family = "FiraCode Nerd Font Mono";
-            style = "Regular";
-          };
-          bold.style = "Bold";
-          italic.style = "Italic";
-          bold_italic.style = "Bold Italic";
-          size = 10;
-        };
-        window = {
-          dimensions = {
-            columns = 210;
-            lines = 50;
-          };
-        };
-        shell = {
-          program = "${pkgs.zsh}/bin/zsh";
-          args = [
-            "-l"
-            "-c"
-            "tmux attach || tmux"
-          ];
-        };
-      };
-    };
   };
 }
 

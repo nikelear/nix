@@ -23,6 +23,8 @@
       zsh-fzf-tab
       ripgrep
       hyperfine
+      lazygit
+      lazydocker
     ];
     sessionPath = [
       "$HOME/.local/bin"
