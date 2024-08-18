@@ -1,5 +1,10 @@
 { pkgs, ...}:
 {
+  home = {
+    packages = with pkgs; [
+      xclip
+    ];
+  };
   dconf.settings = {
     "org/gnome/shell" = {
       favorite-apps = [
