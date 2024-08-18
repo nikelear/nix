@@ -12,7 +12,17 @@ int main(int argc, char *argv[]) {
 }
 endsnippet
 
+snippet ifa
+if (${1:// condition}) ${2://content};
+endsnippet
+
 snippet cmp
-int cmp(const void *a, const void *b) { return ${1://content1} - ${2://content2}; }
+int cmp(const void *a, const void *b) { return *(${1://content1} *)a - *(${2://content2} *)b; }
+endsnippet
+
+snippet cmps
+int cmp(const void *a, const void *b) {
+  return ((${1://content1} *)a)->${3://type} - *(${2://content2} *)b->${4://type};
+}
 endsnippet
 
