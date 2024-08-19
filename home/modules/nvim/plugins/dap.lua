@@ -27,6 +27,7 @@ dap.configurations.c = {
       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
     end,
     cwd = '${workspaceFolder}',
+    externalConsole = true,
     stopOnEntry = false,
     args = {},
   },
