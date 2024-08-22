@@ -27,8 +27,12 @@
     };
 
     initExtra = ''
-      bindkey '^N' history-substring-search-backward
-      bindkey '^P' history-substring-search-forward
+      autoload history-search-end
+      zle -N history-beginning-search-backward-end history-search-end
+      zle -N history-beginning-search-forward-end history-search-end
+      bindkey '^n' history-beginning-search-backward
+      bindkey '^p' history-beginning-search-forward
+
       source ${sh/prompt.sh}
       source ${sh/function.sh}
       source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
