@@ -38,7 +38,6 @@
       source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
       setopt print_eight_bit
       setopt print_exit_value
-      setopt extended_glob
       zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
     '';
 

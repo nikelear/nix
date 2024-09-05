@@ -1,6 +1,5 @@
 # rust-toolchain.toml
 [toolchain]
 channel = "1.78.0"
-components = ["rustc", "cargo"]
 profile = "minimal"
 targets = []

@@ -24,7 +24,6 @@
         formatter = pkgs.nixpkgs-fmt;
         devShells.default = pkgs.mkShell {
           nativeBuildInputs = with pkgs;[
-            python311
           ] ++ [
             toolchain
           ];
