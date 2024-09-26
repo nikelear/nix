@@ -2,7 +2,7 @@
   security = {
     pki = {
       certificateFiles = [
-        /etc/ssl/certs/certs.pem
+        /etc/ssl/certs/certs.crt
       ];
     };
   };
@@ -20,25 +20,25 @@
       fsType = "drvfs";
       options = [ "defaults" ];
     };
-    "/mnt/n" = {
-      device = "N:";
-      fsType = "drvfs";
-      options = [ "defaults" ];
-    };
-    "/mnt/m" = {
-      device = "M:";
-      fsType = "drvfs";
-      options = [ "defaults" ];
-    };
-    "/mnt/p" = {
-      device = "P:";
-      fsType = "drvfs";
-      options = [ "defaults" ];
-    };
-    "/mnt/t" = {
-      device = "T:";
-      fsType = "drvfs";
-      options = [ "defaults" ];
-    };
+    # "/mnt/n" = {
+    #   device = "N:";
+    #   fsType = "drvfs";
+    #   options = [ "defaults" ];
+    # };
+    # "/mnt/m" = {
+    #   device = "M:";
+    #   fsType = "drvfs";
+    #   options = [ "defaults" ];
+    # };
+    # "/mnt/p" = {
+    #   device = "P:";
+    #   fsType = "drvfs";
+    #   options = [ "defaults" ];
+    # };
+    # "/mnt/t" = {
+    #   device = "T:";
+    #   fsType = "drvfs";
+    #   options = [ "defaults" ];
+    # };
   };
 }
